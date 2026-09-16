@@ -2,14 +2,14 @@
 
 #include <stdio.h>
 
-int main() {
+int main () {
 
-    int numeros[10] = {1, 2, 3, 4, 5};
+int numeros [10] = {1,2,3,4,5};
 
-    for (int i = 0; i < 10; i++) {
-        printf("O valor na posição %d é %d\n", i, numeros[i]);
-    }
-
-    return 0;
+for (int i = 0; i < 10; i++) {
+	if (numeros[i] != 0) {
+		printf ("O valor na posição %d é %d \n", i, numeros[i]);
+	}
 }
-
+return 0;
+}
