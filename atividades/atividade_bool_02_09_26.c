@@ -1,4 +1,4 @@
-//Fernanda Sousa de Assunção Vale e Luiz Ruifeng Mei - Atividade 2 - 02/09/2026
+//Fernanda Sousa de Assunção Vale e Luiz Ruifeng Mei - Atividade - 02/09/2026
 
 
 #include <stdio.h>
