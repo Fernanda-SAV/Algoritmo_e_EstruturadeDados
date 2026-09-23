@@ -66,7 +66,7 @@ int main () {
 		
 			for (int i = 0; i < 10; i++) {
 				if (vetor[i] == ler){
-					printf("o número %d está na posição %d\n\n", ler, i);
+					printf("Número %d lido com sucesso!\n\n", ler, i);
 					disjuntor = 1;
 				}
 			}
