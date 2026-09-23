@@ -30,7 +30,9 @@ int main () {
             printf("Digite um número:\n");
             scanf("%d", &numeros[quantidade]);
 
-            quantidade++;
+            if (quantidade < 10) {
+                quantidade++;
+            }
 
             if (quantidade < 10) {
                 printf("Número cadastrado!\n");
@@ -55,7 +57,9 @@ int main () {
                 }
             }
 
-            if (numeros [i]==)
+                if (encontrado == 0) {
+                    printf ("Número não encontrado.");
+                }
         
         //UPDATE
         else if (opcao == 3){
