@@ -44,16 +44,18 @@ int main () {
             encontrado=0;
 
             for (int i=0; i<quantidade; i++){
-                if (numeros[i]) == busca){
+                if (numeros[i] == busca){
                     printf("Número encontrado na posição %d.", i);
 
                     encontrado=1;       
                 }
             }
 
-            if (numeros [i]==)
+            if (encontrado==0){
+                printf("Número não encontrado.\n");
+            }
 
-            
+        }   
         
         //UPDATE
         else if (opcao == 3){
@@ -72,7 +74,7 @@ int main () {
 
         //DELETE
         else if (opcao == 4){
-            printf ("Qual a posiução que deseja deletar?\n");
+            printf ("Qual a posição que deseja deletar?\n");
             scanf ("%d", &posicao);
 
             p
