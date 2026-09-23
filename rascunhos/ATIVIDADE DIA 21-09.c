@@ -2,7 +2,7 @@
 
 int main () {
 	
-    int vetor[10] = {5,10};
+    int vetor[10];
     int criar;
     int ler;
     int atualizar_antigo;
