@@ -25,41 +25,50 @@ int main () {
 
 
         //CREATE
-        if (opcao == 1){
-
-            printf("Digite um número:\n");
-            scanf("%d", &numeros[quantidade]);
-
-            if (quantidade < 10) {
-                quantidade++;
-            }
-
-            if (quantidade < 10) {
-                printf("Número cadastrado!\n");
-            } else {
-                printf ("Vetor cheio!\n");
-            }
+      if (opcao == 1) {
+				
+			printf ("Qual número deseja criar?\n");
+			scanf ("%d", &criar);
+			
+			if (quantidade <= 9) {
+				vetor[quantidade] = criar;
+				quantidade++;
+				printf ("Número criado com sucesso!\n");
+			} else {
+				printf ("O vetor está cheio, delete algum número!\n");
+			}
         }
 
         //READ
         else if (opcao == 2){
             
-            printf("Qual número você gostaria de buscar?\n");
-            scanf("%d", &busca);
-
-            encontrado=0;
-
-            for (int i = 0; i < quantidade; i++){
-                if (numeros[i]) == busca){
-                    printf("Número encontrado na posição %d.", i);
-
-                    encontrado=1;       
-                }
-            }
-
-                if (encontrado == 0) {
-                    printf ("Número não encontrado.");
-                }
+            int disjuntor_read= 0;
+			int vezes = 0;
+				
+			printf ("Qual número deseja buscar\n");
+			scanf("%d", &ler);
+		
+			for (int i = 0; i <= quantidade; i++) {
+				if (vetor[i] == ler) {
+					vezes++;
+					disjuntor_read = 1;
+				}
+			}
+			
+			if (vezes != 0) {
+				printf ("O número buscado está contido em %d posição(ões), sendo ela(s):\n", vezes);
+			}
+			
+			for (int i = 0; i < quantidade; i++) {
+				if (vetor[i] == ler) {
+					printf ("Posição %d\n", i);
+				}
+			}
+				
+			if (disjuntor_read == 0) {
+				printf ("Número digitado não criado.\n\n");
+			}
+		}
         
         //UPDATE
         else if (opcao == 3){
@@ -88,5 +97,3 @@ int main () {
 
 
 }
-
-
