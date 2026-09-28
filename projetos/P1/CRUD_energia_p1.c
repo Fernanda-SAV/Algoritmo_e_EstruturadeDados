@@ -10,7 +10,7 @@
 
 int main() {
 
-    float consumo[12] = {0};
+    float consumo[12];
     //inserir variavel de controle - luiz e fernanda devem verificar ou verificar vetor sem iniciar vazio
     float gasto;
     float tarifa;
@@ -19,6 +19,10 @@ int main() {
     int mes;
     int opcao;
     int continuar = 1;
+
+    for (int i = 0; i < 12; i++) {
+        consumo[i] = -1;
+    }
 
     while (continuar == 1) {
 
@@ -44,12 +48,30 @@ int main() {
             printf("Digite o mes (1 a 12): ");
             scanf("%d", &mes);
 
-            printf("Digite o consumo do mes em kWh: ");
-            scanf("%f", &gasto);
+            if (mes < 1 || mes > 12) {
 
-            consumo[mes - 1] = gasto;
+                printf ("Mês inválido! Tente novamente.\n");
 
-            printf("Consumo cadastrado com sucesso!\n");
+            } else {
+
+                printf ("Digite o consumo do mês em kWh:");
+                scanf ("%f", &gasto);
+
+                if (gasto < 0) {
+
+                    printf ("Consumo inválido! Tente novamente.\n");
+
+                } else if (consumo[mes - 1] == -1) {
+
+                    consumo [mes - 1] = gasto;
+                    printf("Consumo cadastrado com sucesso!\n");
+
+                } else {
+
+                    printf ("Consumo já cadastrado para este mês! Tente novamente.\n");
+                
+                }
+            }
         }
 
 
@@ -60,15 +82,18 @@ int main() {
             printf("Digite o mes que deseja consultar (1 a 12): ");
             scanf("%d", &mes);
 
-            if (consumo[mes - 1] != 0) {
+            if (mes < 1 || mes > 12) {
 
-                printf("Consumo do mes %d: %.2f kWh\n",
-                       mes, consumo[mes - 1]);
+                printf ("Mês inválido! Tente novamente.\n");
 
+            } else if (consumo[mes - 1] != -1) {
+                
+                printf ("Consumo do mês %d: %.2f kWh\n", mes, consumo[mes - 1]);
+            
             } else {
-
-                printf("Nao existe consumo cadastrado para esse mes.\n");
-
+            
+                printf ("Não há consumo cadastrado para esse mês.\n");
+           
             }
         }
 
@@ -77,19 +102,30 @@ int main() {
 
         if (opcao == 3) {
 
-            printf("Digite o mes que deseja atualizar (1 a 12): ");
+            printf("Digite o mês que deseja atualizar (1 a 12): ");
             scanf("%d", &mes);
+            
+            if (mes < 1 || mes > 12) {
 
-            if (consumo[mes - 1] != 0) {
+                printf ("Mês inválido! Tente novamente.\n");
+            
+            } else if (consumo[mes - 1] != -1) {
 
                 printf("Consumo atual: %.2f kWh\n", consumo[mes - 1]);
 
                 printf("Digite o novo consumo: ");
                 scanf("%f", &gasto);
 
-                consumo[mes - 1] = gasto;
+                if (gasto < 0) {
 
-                printf("Consumo atualizado com sucesso!\n");
+                    printf ("Consumo inválido! Tente novamente.\n");
+             
+                } else {
+
+                    consumo[mes - 1] = gasto;
+                    printf("Consumo atualizado com sucesso!\n");
+
+                }
 
             } else {
 
