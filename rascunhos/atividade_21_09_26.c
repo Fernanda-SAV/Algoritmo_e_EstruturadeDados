@@ -7,13 +7,13 @@ int main () {
     int numeros[10];
     int quantidade=0;
     int opcao;
+    int valor;
     int posicao;
     int novoValor;
-    int busca;
-    int encontrado;
+    int vezes;
 
     do{
-        printf("====Lista de Números cadastrados====");
+        printf("====Lista de Números cadastrados====\n");
         printf("1 - Cadastrar\n");
         printf("2 - Buscar\n");
         printf("3 - Atualizar\n");
@@ -28,10 +28,10 @@ int main () {
       if (opcao == 1) {
 				
 			printf ("Qual número deseja criar?\n");
-			scanf ("%d", &criar);
+			scanf ("%d", &valor);
 			
 			if (quantidade <= 9) {
-				vetor[quantidade] = criar;
+				numeros[quantidade] = valor;
 				quantidade++;
 				printf ("Número criado com sucesso!\n");
 			} else {
@@ -42,58 +42,85 @@ int main () {
         //READ
         else if (opcao == 2){
             
-            int disjuntor_read= 0;
-			int vezes = 0;
+			vezes = 0;
 				
 			printf ("Qual número deseja buscar\n");
-			scanf("%d", &ler);
+			scanf("%d", &valor);
 		
-			for (int i = 0; i <= quantidade; i++) {
-				if (vetor[i] == ler) {
-					vezes++;
-					disjuntor_read = 1;
-				}
-			}
-			
-			if (vezes != 0) {
-				printf ("O número buscado está contido em %d posição(ões), sendo ela(s):\n", vezes);
-			}
-			
 			for (int i = 0; i < quantidade; i++) {
-				if (vetor[i] == ler) {
-					printf ("Posição %d\n", i);
+				if (numeros[i] == valor) {
+					vezes++;
 				}
 			}
-				
-			if (disjuntor_read == 0) {
-				printf ("Número digitado não criado.\n\n");
-			}
+			
+			if (vezes == 0) {
+                printf("Número não encontrado.\n");
+            } else {
+                printf("O número está em %d posição(ões):\n", vezes);
+
+                for (int i = 0; i < quantidade; i++) {
+                    if (numeros[i] == valor) {
+                        printf("Posição %d\n", i);
+                    }
+                }
+            }
 		}
         
-        //UPDATE
-        else if (opcao == 3){
+    // UPDATE
+        else if (opcao == 3) {
+            printf("Qual número deseja trocar? ");
+            scanf("%d", &valor);
 
-            printf ("Qual a posição deseja trocar?\n");
-            scanf("%d", &posicao);
+            posicao = -1;
 
-            printf("Qual vai ser o novo número?\n");
-            scanf("%d", &novoValor);
+            for (int i = 0; i < quantidade; i++) {
+                if (numeros[i] == valor) {
+                    posicao = i;
+                    break;
+                }
+            }
 
-            numeros[posicao] = novoValor;
+            if (posicao == -1) {
+                printf("Número não encontrado. Nenhum valor foi atualizado.\n");
+            } else {
+                printf("Qual será o novo número? ");
+                scanf("%d", &novoValor);
 
-            printf ("O número foi atualizado");
-
-    }
-
-        //DELETE
-        else if (opcao == 4){
-            printf ("Qual a posiução que deseja deletar?\n");
-            scanf ("%d", &posicao);
-
-            p
+                numeros[posicao] = novoValor;
+                printf("Número atualizado com sucesso!\n");
+            }
         }
-    }
+
+        // DELETE
+        else if (opcao == 4) {
+            printf("Qual número deseja excluir? ");
+            scanf("%d", &valor);
+
+            posicao = -1;
+
+            for (int i = 0; i < quantidade; i++) {
+                if (numeros[i] == valor) {
+                    posicao = i;
+                    break;
+                }
+            }
+
+            if (posicao == -1) {
+                printf("Número não encontrado. Nenhum valor foi excluído.\n");
+            } else {
+                for (int i = posicao; i < quantidade - 1; i++) {
+                    numeros[i] = numeros[i + 1];
+                }
+
+                quantidade--;
+                printf("Número excluído com sucesso!\n");
+            }
+        }
 
 
+    } while (opcao != 0);
 
+     printf("Programa encerrado.\n");
+
+    return 0;
 }
