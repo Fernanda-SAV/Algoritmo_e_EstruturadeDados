@@ -11,6 +11,7 @@
 int main() {
 
     float consumo[12] = {0};
+    //inserir variavel de controle - luiz e fernanda devem verificar ou verificar vetor sem iniciar vazio
     float gasto;
     float tarifa;
     float custo;
@@ -106,7 +107,8 @@ int main() {
             scanf("%d", &mes);
 
             if (consumo[mes - 1] != 0) {
-
+// lembre que o usuario pode inserir zero, entao talvez seja melhor usar a variavel de controle, a diferença do zero vazio pro
+// zero inserido pelo usuario -DIFERENCIE OS ZEROS
                 consumo[mes - 1] = 0;
 
                 printf("Consumo deletado com sucesso!\n");
@@ -120,7 +122,8 @@ int main() {
 
 
         // CALCULAR CUSTO
-// ****** luiz, aq eu notei que se inserir o valor da tarifa com virgula ao inves de ponto (por exemplo, não permita que o usuário insira 1,11, aceite somente o 1.11), o programa "quebra"
+// ****** luiz, aq eu notei que se inserir o valor da tarifa com virgula ao inves de ponto (por exemplo, não permita que o usuário insira 
+// 1,11, aceite somente o 1.11), o programa "quebra"
 // acho ideal colocar uma restrição em que o programa so aceite valores de float usando ponto e não virgula, para evitar essa situação
 //aleem disso, aq nessa opção, podemos perguntar se ele quer o calculo mensal escolhendo o mes que deseja calcular ou quer saber 
 // o quanto gastou no ano, somando os valores de todos os 12 espaços ******
@@ -134,6 +137,7 @@ int main() {
                 printf("Digite o valor da tarifa por kWh: R$ ");
                 scanf("%f", &tarifa);
 //a tarifa HOJE (28/09/2026) da equatorial com impostos está R$ 1.11 por kWh
+// para calcular o valor anual pergunte pro usuario em que mes estamos
                 custo = consumo[mes - 1] * tarifa;
 
                 printf("Consumo: %.2f kWh\n", consumo[mes - 1]);
