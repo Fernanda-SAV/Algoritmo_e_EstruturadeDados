@@ -118,7 +118,7 @@ int main() {
 
 
         // CALCULAR CUSTO
-// ****** luiz, aq eu notei que se inserir o valor da tarifa com virgula ao inves de ponto, o programa "quebra"
+// ****** luiz, aq eu notei que se inserir o valor da tarifa com virgula ao inves de ponto (por exemplo, não permita que o usuário insira 1,11, aceite somente o 1.11), o programa "quebra"
 // acho ideal colocar uma restrição em que o programa so aceite valores de float usando ponto e não virgula, para evitar essa situação
 //aleem disso, aq nessa opção, podemos perguntar se ele quer o calculo mensal escolhendo o mes que deseja calcular ou quer saber 
 // o quanto gastou no ano, somando os valores de todos os 12 espaços ******
