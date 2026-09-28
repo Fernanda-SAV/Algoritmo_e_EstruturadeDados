@@ -35,7 +35,9 @@ int main() {
 
         // CREATE
 //****** luiz, aq vc pode inserir uma restrição para, caso o consumo já esteja cadastrado por 
-//exemplo, nao permitir um novo cadastro em cima do mes já registrado ******
+//exemplo, nao permitir um novo cadastro em cima do mes já registrado 
+// faz aquela verificaçao de segurança impedindo q o usuario insira mais coisas o que cabe dentro do vetor
+// tem que verificar que o usuário NESSE CASO nao pode inserir mes 0 ******
         if (opcao == 1) {
 
             printf("Digite o mes (1 a 12): ");
