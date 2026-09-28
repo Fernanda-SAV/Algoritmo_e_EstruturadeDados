@@ -131,7 +131,7 @@ int main() {
 
                 printf("Digite o valor da tarifa por kWh: R$ ");
                 scanf("%f", &tarifa);
-
+//a tarifa HOJE (28/09/2026) da equatorial com impostos está R$ 1.11 por kWh
                 custo = consumo[mes - 1] * tarifa;
 
                 printf("Consumo: %.2f kWh\n", consumo[mes - 1]);

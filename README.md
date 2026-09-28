@@ -4,9 +4,12 @@ Repositório destinado às atividades e projetos desenvolvidos na disciplina de 
 
 
 📂 Organização do Repositório
-.
+
+
 ├── README.md
+
 ├── atividades/
+
 └── projetos/
 
 
