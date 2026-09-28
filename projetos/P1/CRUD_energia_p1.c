@@ -1,3 +1,11 @@
+// CRUD feito para a P1 da disciplina de Algoritmo e Estrutura de Dados
+// Discentes: Fernanda Sousa de Assunção Vale - matrícula: 20250071607 e Luiz Ruifeng Mei - matrícula: 20240006006
+
+// CRUD com objetivo de: CONTROLE DE CONSUMO DE ENERGIA - permite que o usuário registre seus consumos mensais e 
+// consiga, além de manipular os valores inseridos, possa calcular o consumo mensal e/ou anual, caso deseje.
+
+
+// ******luiz, faz o readme desse crud por favor******
 #include <stdio.h>
 
 int main() {
@@ -26,8 +34,8 @@ int main() {
 
 
         // CREATE
-//luiz, aq vc pode inserir uma restrição para, caso o consumo já esteja cadastrado por 
-//exemplo, nao permitir um novo cadastro em cima do mes já registrado
+//****** luiz, aq vc pode inserir uma restrição para, caso o consumo já esteja cadastrado por 
+//exemplo, nao permitir um novo cadastro em cima do mes já registrado ******
         if (opcao == 1) {
 
             printf("Digite o mes (1 a 12): ");
@@ -110,10 +118,10 @@ int main() {
 
 
         // CALCULAR CUSTO
-//luiz, aq eu notei que se inserir o valor da tarifa com virgula ao inves de ponto, o programa "quebra"
+// ****** luiz, aq eu notei que se inserir o valor da tarifa com virgula ao inves de ponto, o programa "quebra"
 // acho ideal colocar uma restrição em que o programa so aceite valores de float usando ponto e não virgula, para evitar essa situação
 //aleem disso, aq nessa opção, podemos perguntar se ele quer o calculo mensal escolhendo o mes que deseja calcular ou quer saber 
-// o quanto gastou no ano, somando os valores de todos os 12 espaços
+// o quanto gastou no ano, somando os valores de todos os 12 espaços ******
         if (opcao == 5) {
 
             printf("Digite o mes que deseja calcular (1 a 12): ");
