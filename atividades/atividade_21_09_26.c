@@ -12,7 +12,8 @@ int main () {
     int novoValor;
     int vezes;
 
-    do{
+    do{ 
+        //incluiremos o Mostrar?
         printf("====Lista de Números cadastrados====\n");
         printf("1 - Cadastrar\n");
         printf("2 - Buscar\n");
