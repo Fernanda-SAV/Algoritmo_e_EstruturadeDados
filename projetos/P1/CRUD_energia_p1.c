@@ -46,7 +46,7 @@ int main() {
 // tem que verificar que o usuário NESSE CASO nao pode inserir mes 0 ******
         if (opcao == 1) {
 
-            printf("Digite o mes (1 a 12): ");
+            printf("Digite o mês (1 a 12): ");
             scanf("%d%c", &mes, &teste);
 
             if (teste == ',' || teste == '.') {
@@ -63,24 +63,34 @@ int main() {
 
                 printf ("Mês inválido! Tente novamente.\n");
 
+            } else if (consumo[mes - 1] != -1) {
+
+                printf ("Consumo já cadastrado para este mês! Tente novamente.\n");
+
             } else {
 
                 printf ("Digite o consumo do mês em kWh: ");
-                scanf ("%f", &gasto);
+                scanf ("%f%c", &gasto, &teste);
 
-                if (gasto < 0) {
+                if (teste == ',') {
+
+                            printf ("Digite o valor com ponto!\n");
+
+                            while (teste != '\n') {
+
+                                scanf ("%c", &teste);
+
+                            }
+
+                } else if (gasto < 0) {
 
                     printf ("Consumo inválido! Tente novamente.\n");
 
-                } else if (consumo[mes - 1] == -1) {
+                } else {
 
                     consumo [mes - 1] = gasto;
                     printf("Consumo cadastrado com sucesso!\n");
 
-                } else {
-
-                    printf ("Consumo já cadastrado para este mês! Tente novamente.\n");
-                
                 }
             }
         }
@@ -90,7 +100,7 @@ int main() {
 
         if (opcao == 2) {
 
-            printf("Digite o mes que deseja consultar (1 a 12): ");
+            printf("Digite o mês que deseja consultar (1 a 12): ");
             scanf("%d%c", &mes, &teste);
 
             if (teste == ',' || teste == '.') {
@@ -145,9 +155,19 @@ int main() {
                 printf("Consumo atual: %.2f kWh\n", consumo[mes - 1]);
 
                 printf("Digite o novo consumo: ");
-                scanf("%f", &gasto);
+                scanf("%f%c", &gasto, &teste);
 
-                if (gasto < 0) {
+                if (teste == ',') {
+
+                            printf ("Digite o valor com ponto!\n");
+
+                            while (teste != '\n') {
+
+                                scanf ("%c", &teste);
+
+                            }
+
+                } else if (gasto < 0) {
 
                     printf ("Consumo inválido! Tente novamente.\n");
              
@@ -215,7 +235,7 @@ int main() {
 
              printf ("Como deseja calcular o custo?\n\n");
              printf ("Opção 1: por mês.\n");
-             printf ("Opção 2: por ano.\n\n");
+             printf ("Opção 2: por ano.\n");
              scanf ("%d", &opcao5);
 
              if (opcao5 == 1) {
