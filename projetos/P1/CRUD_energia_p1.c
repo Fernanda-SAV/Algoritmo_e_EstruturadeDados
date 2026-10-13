@@ -4,14 +4,11 @@
 // CRUD com objetivo de: CONTROLE DE CONSUMO DE ENERGIA - permite que o usuário registre seus consumos mensais e 
 // consiga, além de manipular os valores inseridos, possa calcular o consumo mensal e/ou anual, caso deseje.
 
-
-// ******luiz, faz o readme desse crud por favor******
 #include <stdio.h>
 
 int main() {
 
     float consumo[12];
-    //inserir variavel de controle - luiz e fernanda devem verificar ou verificar vetor sem iniciar vazio
     float gasto;
     float tarifa;
     float custo;
@@ -34,6 +31,8 @@ int main() {
         printf("3 - ATUALIZAR CONSUMO DO MES\n");
         printf("4 - DELETAR CONSUMO DO MES\n");
         printf("5 - CALCULAR CUSTO DO MES/ANO\n\n");
+        printf("0 - SAIR\n\n");
+        
 
         printf("O que deseja fazer? ");
         scanf("%d", &opcao);
@@ -44,6 +43,16 @@ int main() {
 //exemplo, nao permitir um novo cadastro em cima do mes já registrado 
 // faz aquela verificaçao de segurança impedindo q o usuario insira mais coisas o que cabe dentro do vetor
 // tem que verificar que o usuário NESSE CASO nao pode inserir mes 0 ******
+
+          // SAIR
+        if (opcao == 0) {
+            continuar = 0;
+            printf("Programa encerrado!\n");
+            break;
+        }
+
+         // CREATE
+        
         if (opcao == 1) {
 
             printf("Digite o mês (1 a 12): ");
@@ -270,6 +279,12 @@ int main() {
                             scanf ("%c", &teste);
 
                         }
+
+                    } else if (tarifa < 0) {
+
+                        // CORREÇÃO: TARIFA NEGATIVA
+                        printf("Tarifa inválida! Não pode ser negativa.\n");
+
                     } else {
 
                         custo = consumo[mes - 1] * tarifa;
@@ -311,36 +326,36 @@ int main() {
                     printf ("Mês inválido! Tente novamente.\n");
                 }
 
-                for (int i = 0; i < mes && encontrado != 1 ; i++) {
+                if (mes >= 1 && mes <= 12) {
 
-                    if (consumo[i] == -1) {
+                    for (int i = 0; i < mes && encontrado != 1; i++) {
 
-                        printf ("Existe consumo não cadastrado durante o período informado! Tente novamente.\n");
-                        encontrado = 1;
+                        if (consumo[i] == -1) {
 
-                    } else {
+                            printf("Existe consumo não cadastrado durante o período informado! Tente novamente.\n");
+                            encontrado = 1;
 
-                        custo = consumo[i] + custo;
+                        } else {
 
+                            custo = consumo[i] + custo;
+                        }
                     }
-                }
-
-                if (mes > 0 && mes < 13) {
 
                     if (custo >= 0 && encontrado == 0) {
 
-                        printf ("Digite o valor da tarifa por kWh: R$ ");
-                        scanf ("%f%c", &tarifa, &teste);
+                        printf("Digite o valor da tarifa por kWh: R$ ");
+                        scanf("%f%c", &tarifa, &teste);
 
                         if (teste == ',') {
 
-                            printf ("Digite o valor com ponto!\n");
+                            printf("Digite o valor com ponto!\n");
 
                             while (teste != '\n') {
-
-                                scanf ("%c", &teste);
-
+                                scanf("%c", &teste);
                             }
+
+                        } else if (tarifa < 0) {
+                            printf("Tarifa inválida! Não pode ser negativa.\n");
 
                         } else {
 
