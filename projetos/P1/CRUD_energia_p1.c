@@ -1,14 +1,27 @@
 // CRUD feito para a P1 da disciplina de Algoritmo e Estrutura de Dados
 // Discentes: Fernanda Sousa de Assunção Vale - matrícula: 20250071607 e Luiz Ruifeng Mei - matrícula: 20240006006
 
-// CRUD com objetivo de: CONTROLE DE CONSUMO DE ENERGIA - permite que o usuário registre seus consumos mensais e 
-// consiga, além de manipular os valores inseridos, possa calcular o consumo mensal e/ou anual, caso deseje.
+// CRUD com objetivo de: CONTROLE DE CONSUMO DE ENERGIA
+//A ideia surgiu da necessidade de organizar e acompanhar o consumo de energia de uma residência ao longo do ano.
+// Motivação: Imagine uma pessoa que deseja saber quanto consumiu de energia em determinado mês ou quanto gastou durante um período. 
+// Para isso, ela precisaria armazenar esses dados e realizar os cálculos manualmente.
+// Pensando nesse problema, desenvolvemos um programa que permite cadastrar, consultar, 
+// atualizar e excluir registros de consumo mensal, além de calcular o custo estimado da energia elétrica.
 
 #include <stdio.h>
 
+
+// O programa foi desenvolvido todo dentro do main() que é a função principal
 int main() {
 
-    float consumo[12];
+    float consumo[12]; //nossa estrutura de armazenamento é o vetor consumo, q representa os meses do ano
+    //importante característica desse vetor:
+    //como os índices do vetor começam em zero, janeiro corresponde à posição zero e dezembro à posição onze. 
+    //por isso, sempre que o usuário informa um mês, utilizamos mes - 1 para acessar a posição correta.
+    //o valor -1 representa um mês ainda não cadastrado.
+    //isso foi feito porque o consumo de energia pode ser zero, mas não pode ser negativo. 
+    //assim, conseguimos diferenciar um mês não cadastrado de um mês que realmente teve consumo igual a zero.
+    
     float gasto;
     float tarifa;
     float custo;
@@ -226,6 +239,14 @@ int main() {
 
 
         // CALCULAR CUSTO
+        //além das 4 operações do CRUD, implementamos uma funcionalidade 
+        //extra que permite calcular o custo estimado da energia elétrica 
+        //com base no consumo registrado e na tarifa por kWh informada pelo usuário.
+
+        //o usuario também pode escolher entre calcular o custo de um mês específico 
+        //ou o custo total de um período (de janeiro até o mês informado).
+        // no calculo anual, se houver algum mês sem consumo cadastrado, 
+        //o programa informa que não é possível calcular o custo total.
 
         if (opcao == 5) {
 
